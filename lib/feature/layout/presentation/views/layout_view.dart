@@ -28,10 +28,6 @@ class LayoutView extends StatelessWidget {
           onTap: (index) {
             BottomNavigationCubit.get(context).changeBottomNavigation(index);
           },
-          selectedItemColor: AppColors.deepOrange,
-          unselectedItemColor: AppColors.grey,
-          backgroundColor: AppColors.white,
-          type: BottomNavigationBarType.fixed,
           currentIndex: BottomNavigationCubit.get(context).currentIndex,
           items: BottomNavigationCubit.get(context).bottomNavigationBarItems,
         ),

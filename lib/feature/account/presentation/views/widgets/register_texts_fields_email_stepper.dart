@@ -1,0 +1,90 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/config/icons/icons_broken.dart';
+import 'package:store_app/core/utils/app_colors.dart';
+import 'package:store_app/core/utils/app_styles.dart';
+import 'package:store_app/feature/account/presentation/cubits/register_cubit/register_cubit.dart';
+import 'package:store_app/feature/account/presentation/cubits/register_cubit/register_state.dart';
+import 'package:store_app/feature/account/presentation/views/widgets/text_field_auth.dart';
+
+class RegisterTextsFieldsEmailStepper extends StatelessWidget {
+  const RegisterTextsFieldsEmailStepper({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<RegisterCubit,RegisterState>(
+      builder: (context, state) {
+        return Form(
+          key: RegisterCubit.get(context).formKeyForEmailStepper,
+          child: Column(
+            children: [
+              TextFieldAuth(
+                title: Text(
+                  'Email',
+                  style: AppStyles.textStyle16,
+                ),
+                hintText: 'Enter your email',
+                textInputType: TextInputType.emailAddress,
+                passwordController: RegisterCubit.get(context).emailController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter your email';
+                  }
+                  return null;
+                },
+              ),
+              TextFieldAuth(
+                title: Text(
+                  'Phone',
+                  style: AppStyles.textStyle16,
+                ),
+                hintText: 'Enter your phone',
+                textInputType: TextInputType.phone,
+                maxLength: 11,
+                passwordController: RegisterCubit.get(context).phoneController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter your phone';
+                  }else if(value.length<11){
+                    return 'Phone number is too short';
+                  }
+                  return null;
+                },
+              ),
+              TextFieldAuth(
+                title: Text(
+                  'Password',
+                  style: AppStyles.textStyle16,
+                ),
+                obscureText: RegisterCubit.get(context).isShowPassword,
+                hintText: 'Enter your password',
+                passwordController:
+                    RegisterCubit.get(context).passwordController,
+                textInputType: TextInputType.text,
+                suffixIcon: InkWell(
+                  onTap: () {
+                    RegisterCubit.get(context).changePasswordVisibility();
+                  },
+                  child: Icon(
+                    RegisterCubit.get(context).isShowPassword
+                        ? IconBroken.Hide
+                        : IconBroken.Show,
+                    color: AppColors.grey,
+                  ),
+                ),
+                validator: (value) {
+                  if (value!.length < 8) {
+                    return 'Password is too short';
+                  }
+                  return null;
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}

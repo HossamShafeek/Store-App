@@ -13,5 +13,11 @@ ThemeData appTheme() {
       backgroundColor: AppColors.white,
       systemOverlayStyle: AppConstants.systemUiOverlayStyle,
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      selectedItemColor: AppColors.deepOrange,
+      unselectedItemColor: AppColors.grey,
+      backgroundColor: AppColors.white,
+      type: BottomNavigationBarType.fixed,
+    ),
   );
 }

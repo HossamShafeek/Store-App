@@ -19,3 +19,7 @@ class RegisterFailureState extends RegisterState{
 }
 
 class RegisterChangePasswordVisibility extends RegisterState{}
+
+class RegisterPlusIndexForStepper extends RegisterState{}
+
+class RegisterMinusIndexForStepper extends RegisterState{}

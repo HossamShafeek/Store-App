@@ -8,7 +8,7 @@ import 'package:store_app/core/utils/app_constants.dart';
 import 'package:store_app/core/utils/app_styles.dart';
 import 'package:store_app/feature/account/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:store_app/feature/account/presentation/cubits/login_cubit/login_state.dart';
-import 'package:store_app/feature/account/presentation/views/widgets/gradient_button.dart';
+import 'package:store_app/core/widgets/gradient_button.dart';
 import 'package:store_app/feature/account/presentation/views/widgets/login_texts_fields_section.dart';
 import 'package:store_app/feature/account/presentation/views/widgets/to_register_view.dart';
 
@@ -69,7 +69,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         }
                       },
                       title: Text(
-                        'LOGIN',
+                        'Login',
                         style: AppStyles.textStyle16.copyWith(
                           color: AppColors.white,
                         ),
