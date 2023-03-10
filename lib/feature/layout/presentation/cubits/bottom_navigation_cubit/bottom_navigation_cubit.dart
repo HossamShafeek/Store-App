@@ -4,7 +4,6 @@ import 'package:store_app/config/icons/icons_broken.dart';
 import 'package:store_app/feature/account/presentation/views/profile_view.dart';
 import 'package:store_app/feature/cart/presentation/views/cart_view.dart';
 import 'package:store_app/feature/layout/presentation/cubits/bottom_navigation_cubit/bottom_navigation_state.dart';
-import 'package:store_app/feature/layout/presentation/views/categories_view.dart';
 import 'package:store_app/feature/layout/presentation/views/home_view.dart';
 
 class BottomNavigationCubit extends Cubit<BottomNavigationState> {
@@ -21,14 +20,12 @@ class BottomNavigationCubit extends Cubit<BottomNavigationState> {
 
   List<String> appBarTitles = const [
     'Store',
-    'Categories',
     'Cart',
     'Profile',
   ];
 
   List<Widget> bodyScreens = const [
     HomeView(),
-    CategoriesView(),
     CartView(),
     ProfileView(),
   ];
@@ -39,12 +36,6 @@ class BottomNavigationCubit extends Cubit<BottomNavigationState> {
         IconBroken.Home,
       ),
       label: 'Home',
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(
-        IconBroken.Category,
-      ),
-      label: 'Categories',
     ),
     BottomNavigationBarItem(
       icon: Icon(

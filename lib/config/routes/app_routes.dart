@@ -6,7 +6,6 @@ import 'package:store_app/feature/account/presentation/cubits/register_cubit/reg
 import 'package:store_app/feature/account/presentation/views/login_view.dart';
 import 'package:store_app/feature/account/presentation/views/register_view.dart';
 import 'package:store_app/feature/layout/presentation/cubits/bottom_navigation_cubit/bottom_navigation_cubit.dart';
-import 'package:store_app/feature/layout/presentation/views/details_view.dart';
 import 'package:store_app/feature/layout/presentation/views/layout_view.dart';
 import 'package:store_app/feature/splash/presentation/views/splash_view.dart';
 
@@ -15,7 +14,6 @@ class Routes {
   static const String loginView = '/login_view';
   static const String registerView = '/register_view';
   static const String layout = '/layout_view';
-  static const String detailsView = '/details_view';
 }
 
 class AppRoutes {
@@ -45,10 +43,6 @@ class AppRoutes {
             create: (context) => BottomNavigationCubit(),
             child: const LayoutView(),
           ),
-        );
-      case Routes.detailsView:
-        return MaterialPageRoute(
-          builder: (context) => const DetailsView(),
         );
     }
     return undefinedRoute();

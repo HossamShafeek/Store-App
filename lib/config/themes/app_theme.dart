@@ -5,11 +5,11 @@ import 'package:store_app/core/utils/app_constants.dart';
 
 ThemeData appTheme() {
   return ThemeData(
+    useMaterial3: true,
     textTheme: GoogleFonts.montserratTextTheme(),
     scaffoldBackgroundColor: AppColors.white,
     primaryColor: AppColors.deepOrange,
     appBarTheme:  const AppBarTheme(
-      elevation: 0.6,
       backgroundColor: AppColors.white,
       systemOverlayStyle: AppConstants.systemUiOverlayStyle,
     ),
